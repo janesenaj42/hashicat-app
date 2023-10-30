@@ -198,7 +198,8 @@ resource "aws_key_pair" "hashicat" {
   public_key = tls_private_key.hashicat.public_key_openssh
 }
 
-module "s3-bucket_example_complete" {
-  source  = "cloudposse/s3-bucket/aws//examples/complete"
-  version = "4.0.0"
+module "s3-bucket" {
+  source              = "cloudposse/s3-bucket/aws"
+  version             = "3.1.0"
+  s3_object_ownership = "BucketOwnerEnforced"
 }
